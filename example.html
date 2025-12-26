@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontendTips Menu Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        /* Add padding to body content to account for menu */
+        body {
+            padding-left: 60px;
+            transition: padding-left 0.3s ease;
+        }
+
+        /* Adjust padding when menu is hovered (expanded to 200px) */
+        body:has(frontendtips-menu:hover) {
+            padding-left: 200px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- FrontendTips Menu Component -->
+    <!-- Use endpoint attribute to fetch menu items from REST API -->
+    <!-- <frontendtips-menu id="menu" endpoint="https://api.example.com/menu-items"></frontendtips-menu> -->
+
+    <!-- Or use without endpoint (will be empty, can add items programmatically) -->
+    <frontendtips-menu id="menu"
+        endpoint="https://cdn.jsdelivr.net/gh/antoniomanuelcarvalho/frontendtips-webcomponent-menu@7/menu.json"></frontendtips-menu>
+
+    <div class="content">
+        <h1>FrontendTips Menu Example</h1>
+        <p>This is an example page demonstrating the FrontendTips Menu component.</p>
+        <p>Hover over the menu to expand it and see the labels. When not hovering, only icons are displayed.</p>
+    </div>
+
+    <!-- Load the menu component (all icons are embedded, no external dependencies) -->
+    <script src="frontendtips-menu.js"></script>
+
+    <script>
+        // Wait for DOM and component to be ready
+        document.addEventListener('DOMContentLoaded', function () {
+            // Listen for menu item clicks
+            const menu = document.getElementById('menu');
+            if (menu) {
+                menu.addEventListener('menu-item-clicked', (e) => {
+                    console.log('Menu item clicked:', e.detail);
+                    // Handle navigation in OutSystems here
+                    // e.detail contains: { link: '/path', label: 'Item Label' }
+                });
+            }
+
+            // Example 1: Add a single menu item programmatically
+            // Wait a bit to ensure the component is fully initialized
+            setTimeout(function () {
+                if (typeof FrontendTipsMenu !== 'undefined' && FrontendTipsMenu.appendItem) {
+                    FrontendTipsMenu.appendItem({
+                        icon: 'ph-star',
+                        label: 'Favorites',
+                        link: '/favorites'
+                    });
+                }
+            }, 100);
+
+            // Example 2: Add multiple menu items at once
+            setTimeout(function () {
+                if (typeof FrontendTipsMenu !== 'undefined' && FrontendTipsMenu.appendItems) {
+                    FrontendTipsMenu.appendItems([
+                        { icon: 'ph-bookmark', label: 'Bookmarks', link: '/bookmarks' },
+                        { icon: 'ph-heart', label: 'Likes', link: '/likes' }
+                    ]);
+                }
+            }, 200);
+        });
+
+        /*
+         * HOW TO USE THE MENU COMPONENT:
+         * 
+         * 1. Fetch menu items from REST endpoint (recommended):
+         *    <frontendtips-menu endpoint="https://api.example.com/menu-items"></frontendtips-menu>
+         *    
+         *    Expected REST response formats:
+         *    - Array: [{ icon: 'ph-house', label: 'Home', link: '/' }, ...]
+         *    - Object with items: { items: [{ icon: 'ph-house', ... }, ...] }
+         *    - Object with data: { data: [{ icon: 'ph-house', ... }, ...] }
+         * 
+         * 2. Add menu items programmatically:
+         *    FrontendTipsMenu.appendItem({
+         *        icon: 'ph-icon-name',  // Icon name (with or without 'ph-' prefix)
+         *        label: 'Menu Label',    // Display text
+         *        link: '/path'          // Optional: URL or path (defaults to '#')
+         *    });
+         * 
+         * 3. Add multiple items at once:
+         *    FrontendTipsMenu.appendItems([
+         *        { icon: 'ph-star', label: 'Favorites', link: '/favorites' },
+         *        { icon: 'ph-bookmark', label: 'Bookmarks', link: '/bookmarks' }
+         *    ]);
+         * 
+         * 4. Get all current menu items:
+         *    const items = FrontendTipsMenu.getItems();
+         * 
+         * 5. Get the menu component instance:
+         *    const menuElement = FrontendTipsMenu.getMenu();
+         * 
+         * Available embedded icons: house, user, gear, bell, envelope, 
+         * chart-line, folder, users, star, bookmark, heart, circle
+         */
+    </script>
+</body>
+
+</html>
