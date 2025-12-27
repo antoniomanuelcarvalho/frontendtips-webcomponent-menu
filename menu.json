@@ -1,11 +1,5 @@
 [
     {
-        "icon": "ph-house",
-        "label": "Home",
-        "link": "https://a-carvalho.outsystemscloud.com/FrontendTips/",
-        "target": "_blank"
-    },
-    {
         "icon": "ph-gear",
         "label": "Admin Dashboard",
         "link": "https://personal-k3nx4aj3-dev.outsystems.app/ODCApplication/Admindashboard",
@@ -16,6 +10,12 @@
         "label": "Account Overview",
         "link": "https://a-carvalho.outsystemscloud.com/O11Reactive/AccountOverview",
         "target": "_self"
+    },
+    {
+        "icon": "ph-house",
+        "label": "Home",
+        "link": "https://a-carvalho.outsystemscloud.com/FrontendTips/",
+        "target": "_blank"
     },
     {
         "icon": "ph-medium-logo",
