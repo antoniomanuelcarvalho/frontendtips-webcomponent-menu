@@ -143,6 +143,14 @@ function getPhosphorIcon(iconName, size = 24) {
       if (screenContainer) {
         screenContainer.style.paddingLeft = '60px';
       } else {
+        const layout = document.querySelector('.layout');
+        if (layout) {
+          layout.style.paddingLeft = '60px';
+          const header = document.querySelector('.header');
+          if (header) {
+            header.style.paddingLeft = '60px';
+          }
+        }
         setTimeout(() => {
           const delayedContainer = document.querySelector('.active-screen.screen-container');
           if (delayedContainer) {
