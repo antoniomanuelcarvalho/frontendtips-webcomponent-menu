@@ -12,6 +12,12 @@
         "target": "_self"
     },
     {
+        "icon": "ph-user-list",
+        "label": "Cards Gallery",
+        "link": "https://a-carvalho.outsystemscloud.com/TraditionalWeb/CardsGallery.aspx",
+        "target": "_self"
+    },
+    {
         "icon": "ph-house",
         "label": "Home",
         "link": "https://a-carvalho.outsystemscloud.com/FrontendTips/",
