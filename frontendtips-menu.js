@@ -456,7 +456,7 @@ function getPhosphorIcon(iconName, size = 24) {
 (function () {
   'use strict';
 
-  var FrontendTipsMenuAPI = {
+  var api = {
     getMenu: function () {
       const menuElement = document.querySelector('frontendtips-menu');
       return menuElement || null;
@@ -499,21 +499,17 @@ function getPhosphorIcon(iconName, size = 24) {
     }
   }
 
-  globalObj.FrontendTipsMenuAPI = FrontendTipsMenuAPI;
-
   try {
     Object.defineProperty(globalObj, 'FrontendTipsMenu', {
-      value: FrontendTipsMenuAPI,
+      value: api,
       writable: true,
       configurable: false,
       enumerable: true
     });
-
-    globalObj.FrontendTipsMenu = FrontendTipsMenuAPI;
   } catch (e) {
     console.error('Failed to expose FrontendTipsMenu API:', e);
     try {
-      globalObj.FrontendTipsMenu = FrontendTipsMenuAPI;
+      globalObj.FrontendTipsMenu = api;
     } catch (e2) {
       console.error('Fallback assignment also failed:', e2);
     }
