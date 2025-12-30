@@ -1,0 +1,38 @@
+[
+    {
+        "icon": "ph-gear",
+        "label": "Admin Dashboard",
+        "link": "https://personal-k3nx4aj3-dev.outsystems.app/ODCApplication/Admindashboard",
+        "target": "_self"
+    },
+    {
+        "icon": "ph-funnel",
+        "label": "Account Overview",
+        "link": "https://a-carvalho.outsystemscloud.com/O11Reactive/AccountOverview",
+        "target": "_self"
+    },
+    {
+        "icon": "ph-user-list",
+        "label": "Cards Gallery",
+        "link": "https://a-carvalho.outsystemscloud.com/TraditionalWeb/CardsGallery.aspx",
+        "target": "_self"
+    },
+    {
+        "icon": "ph-house",
+        "label": "Home",
+        "link": "https://a-carvalho.outsystemscloud.com/FrontendTips/",
+        "target": "_blank"
+    },
+    {
+        "icon": "ph-medium-logo",
+        "label": "Medium",
+        "link": "https://medium.com/@antonio-carvalho",
+        "target": "_blank"
+    },
+    {
+        "icon": "ph-youtube-logo",
+        "label": "YouTube",
+        "link": "https://www.youtube.com/@OutSystemsFrontendTips",
+        "target": "_blank"
+    }
+]
